@@ -1,0 +1,44 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <div class="grid row" *ngFor="let item of (items.length / limit) | times; let i = index">
+    <div>
+        <app-grid-item [item]="items[i*limit]"
+                       [mode]="mode"
+                       [width]="200"
+                       [height]="300"
+                       (action)="onAction($event)">
+        </app-grid-item>
+        <app-grid-item [item]="items[i*limit+1]"
+                       [mode]="mode"
+                       [width]="200"
+                       [height]="140"
+                       (action)="onAction($event)">
+        </app-grid-item>
+    </div>
+    <div>
+        <div class="grid-row">
+          <app-grid-item [item]="items[i*limit+2]"
+                         [mode]="mode"
+                         [width]="200"
+                         [height]="140"
+                         (action)="onAction($event)">
+          </app-grid-item>
+          <app-grid-item [item]="items[i*limit+3]"
+                         [mode]="mode"
+                         [width]="200"
+                         [height]="140"
+                         (action)="onAction($event)">
+          </app-grid-item>
+        </div>
+        <app-grid-item [item]="items[i*limit+4]"
+                       [mode]="mode"
+                       [width]="420"
+                       [height]="300"
+                       (action)="onAction($event)">
+        </app-grid-item>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+    <app-spinner [mode]="'medium'"></app-spinner>
+</ng-template>
+<span *ngIf="!items?.length && !isLoading" class="no-item">No items found</span>

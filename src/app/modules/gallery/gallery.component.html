@@ -1,0 +1,45 @@
+<div class="content-wrap">
+  <div class="mb-20 gallery-nav">
+    <app-nav [crumbs]="crumbs"></app-nav>
+    <button class="button upload row container-center align-center" (click)="onUpload()">
+      <i class="icon-upload mr-10"></i>
+      <span>Upload</span>
+    </button>
+  </div>
+  <div class="gallery-filter-wrap mb-20">
+    <div class="gallery-filter mb-10">
+      <div class="column width-100 select-wrap mr-20">
+        <label for="order" class="select-label ml-10">Order</label>
+        <select class="select labled min-w-290" id="order" name="order" [(ngModel)]="formGroup.sort">
+          <option [value]="order.value" *ngFor="let order of sortTypes">{{ order.name }}</option>
+        </select>
+      </div>
+      <div class="column select-wrap">
+        <label for="mime_types" class="select-label ml-10">Type</label>
+        <select class="select labled min-w-290" id="mime_types" name="mime_types" [(ngModel)]="formGroup.mime_types">
+          <option *ngFor="let type of types"
+                  [value]="type.value">{{ type.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="gallery-filter align-end">
+      <div class="column width-100 select-wrap mr-20">
+        <label for="breed" class="select-label ml-10">Breed</label>
+        <select class="select labled min-w-290" id="breed" name="breed" [(ngModel)]="formGroup.breed_id">
+          <option [value]="'ALL'">None</option>
+          <option [value]="breed.id" *ngFor="let breed of breeds">{{ breed.name }}</option>
+        </select>
+      </div>
+      <div class="column width-100 select-wrap last mr-10">
+        <label for="limit" class="select-label ml-10">Limit</label>
+        <select class="select labled min-w-240" id="type" name="type" [(ngModel)]="formGroup.limit">
+          <option [value]="limit" *ngFor="let limit of limits">{{ limit }}&nbsp;items per page</option>
+        </select>
+      </div>
+      <button class="button small refresh" (click)="onFilter()">
+        <i class="icon-refresh m-0-auto"></i>
+      </button>
+    </div>
+  </div>
+  <app-grid [isLoading]="!data?.length && isLoading" [limit]="5" [items]="data" [mode]="'GALLERY'" (action)="onAction($event)"></app-grid>
+</div>

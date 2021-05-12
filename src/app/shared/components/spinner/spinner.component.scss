@@ -1,0 +1,29 @@
+.spinner {
+  animation: infinite rotate linear 1s;
+  margin: 0 auto;
+  &-icon {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+  }
+  &-wrap {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 450px) {
+  .spinner-wrap {
+    min-height: 150px !important;
+  }
+}

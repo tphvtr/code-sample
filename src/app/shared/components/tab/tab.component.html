@@ -1,0 +1,13 @@
+<article class="tab"
+         [routerLink]="tab.route"
+         (click)="action.emit(tab.route)"
+         routerLinkActive="active">
+  <div class="tab__img-wrap mb-10 row align-center" [ngClass]="tab.color">
+     <img class="m-0-auto block "
+          [src]="tab.path"
+          [width]="tab.width"
+          [height]="tab.height"
+          alt="vote notepad">
+  </div>
+  <button class="button" routerLinkActive="active">{{ tab.label }}</button>
+</article>

@@ -1,0 +1,30 @@
+<div class="content-wrap">
+  <div class="mb-20">
+    <app-nav [crumbs]="crumbs"></app-nav>
+  </div>
+  <div class="relative mb-50">
+    <div class="voting-img relative"
+         [style.display]="isLoading ? 'none' : 'block'"
+         [style.background-image]="'url(' + dog?.url + ')'"></div>
+    <img [src]="dog?.url" style="display: none" (load)="isLoading = false">
+    <app-spinner *ngIf="isLoading" [containerHeight]="360" [mode]="'medium'"></app-spinner>
+    <div class="voting-actions row">
+      <button class="voting-actions-button like"
+              (click)="onVote(1, dog)"
+              [disabled]="isLoading">
+        <i class="icon-likes-white"></i>
+      </button>
+      <button class="voting-actions-button fav"
+              (click)="onFav(dog)"
+              [ngClass]="{'active': favId}">
+        <i class="icon-favourites-white"></i>
+      </button>
+      <button class="voting-actions-button dislike"
+              (click)="onVote(0, dog)"
+              [disabled]="isLoading">
+        <i class="icon-dislikes-white"></i>
+      </button>
+    </div>
+  </div>
+  <app-log *ngFor="let log of logs$ | async" [log]="log"></app-log>
+</div>

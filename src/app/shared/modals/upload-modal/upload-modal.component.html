@@ -1,0 +1,54 @@
+<button class="button small clear" (click)="dialog.close()">
+  <i class="icon-clear"></i>
+</button>
+<h1 class="upload-heading fs-36 lh-52 fw-500 text-center black mb-10 mt-0">Upload a .jpg or .png Dog Image</h1>
+<p class="fs-20 lh-29 text-center mb-40 gray upload-description">
+  Any uploads must comply with the
+  <a href="https://www.thedogapi.com/privacy"
+     target="_blank"
+     class="upload-link">upload guidelines</a>
+  or face deletion.
+</p>
+<div class="upload-area fs-20 lh-30 fw-400 gray mb-20"
+    (click)="document.getElementById('file-upload').click()"
+    (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+    [ngClass]="{'error': isError}"
+    [style.background-image]="'url(' + images[(theme$ | async)]['placeholder'] + ')'">
+  <div *ngIf="!file" class="gray upload-area-description">
+    <p class="mt-0 mb-10">
+        <span class="fw-500 black">Drag here&nbsp;</span>
+        <span>your file or&nbsp;</span>
+    </p>
+    <p class="mt-0 mb-0">
+      <span class="fw-500 black">Click here&nbsp;</span>
+      <span>to upload</span>
+    </p>
+  </div>
+  <img *ngIf="file"
+        [src]="file['url']"
+        alt="Uploaded image"
+        (load)="onPreviewLoaded()"
+        class="upload-img">
+  <input (change)="onFileUpload($event)"
+         id="file-upload"
+         type="file"
+         style="display: none;"
+         accept="image/*" />
+</div>
+<p class="m-0 fs-20 lh-30 fw-400 gray text-center" *ngIf="!file">No file selected</p>
+<ng-container *ngIf="file">
+    <p class="mt-0 mb-20 fs-20 lh-30 fw-400 gray text-center" *ngIf="file">{{ file.name }}</p>
+    <button *ngIf="!isLoading && !isError" class="button upload-photo m-0-auto block" (click)="uploadPhoto()">Upload photo</button>
+    <app-spinner [mode]="'small'" [containerHeight]="20" *ngIf="isLoading"></app-spinner>
+</ng-container>
+<div id="upload-toastr" class="mt-20 upload-message">
+  <ng-container *ngIf="!isError">
+    <i class="icon-success mr-10"></i>
+    <span>Thanks for the Upload - Dog found!</span>
+  </ng-container>
+  <ng-container *ngIf="isError">
+    <i class="icon-fail mr-10"></i>
+    <span>No Dog found - try a different one</span>
+  </ng-container>
+</div>

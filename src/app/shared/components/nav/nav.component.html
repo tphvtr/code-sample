@@ -1,0 +1,15 @@
+<div class="row">
+  <button class="button small arrow mr-10"
+          (click)="location.back()">
+    <i class="icon-arrow"></i>
+  </button>
+  <span class="breadcrumb"
+        [ngClass]="{'active': !crumbs?.child?.length}"
+        (click)="onNavigate(crumbs.url)">{{ crumbs.text }}</span>
+  <ng-container *ngIf="crumbs?.child?.length">
+    <span class="breadcrumb ml-10"
+          *ngFor="let crumb of crumbs.child; let i = index"
+          (click)="onNavigate(crumb.url)"
+          [ngClass]="{'active': (crumbs.child.length - 1) === i}">{{ crumb.text }}</span>
+  </ng-container>
+</div>

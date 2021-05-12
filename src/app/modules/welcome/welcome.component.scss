@@ -1,0 +1,24 @@
+@import './../../../assets/styles/_variables.scss';
+@import './../../../assets/styles/_mixins.scss';
+.welcome {
+  &-wrap {
+    @include background-color('background-secondary');
+    border-radius: 20px;
+    width: 680px;
+    height: 840px;
+    position: relative;
+    margin-bottom: 105px;
+    img {
+      width: 775px;
+      height: 1024px;
+      position: absolute;
+      top: -62px;
+      right: -30px;
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .welcome-wrap {
+    display: none;
+  }
+}

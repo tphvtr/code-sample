@@ -1,0 +1,6 @@
+<div class="content-wrap">
+    <div class="mb-20">
+      <app-nav [crumbs]="crumbs"></app-nav>
+    </div>
+    <app-grid [isLoading]="isLoading" [limit]="5" [items]="data" (action)="onAction($event)"></app-grid>
+</div>

@@ -1,0 +1,8 @@
+<div class="content-wrap">
+    <div class="mb-20">
+      <app-nav [crumbs]="crumbs"></app-nav>
+    </div>
+    <app-grid [isLoading]="isLoading" [limit]="5" [items]="favs" [mode]="'FAV'" (action)="onAction($event)"></app-grid>
+    <span *ngIf="!favs?.length && !isLoading" class="no-item">No items found</span>
+    <app-log *ngFor="let log of logs$ | async" [log]="log"></app-log>
+</div>

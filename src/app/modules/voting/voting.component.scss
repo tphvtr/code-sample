@@ -1,0 +1,102 @@
+@import './../../../assets/styles/variables.scss';
+@import './../../../assets/styles/mixins.scss';
+.voting {
+  &-img {
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &-actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    bottom: -40px;
+    background-color: $grey;
+    border-radius: 20px;
+    border: 4px solid;
+    @include border-color('background-transparent');
+    &-button {
+      outline: none;
+      height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .3s;
+      border: none;
+      &:hover {
+        cursor: pointer;
+      }
+      &.like {
+        background-color: $brand-green;
+        border-radius: 20px 0 0 20px;
+        border-right: 2px solid $white;
+        &:hover {
+          background-color: rgba(151, 234, 185, 0.3);
+          i {
+            background-image: url('./../../../assets/images/icons/face-smile-color.svg');
+          }
+        }
+      }
+      &.fav {
+        background-color: $brand-pink;
+        border-right: 2px solid $white;
+        border-left: 2px solid $white;
+        &:hover {
+          background-color: rgba(255, 134, 142, 0.3);
+          i {
+            background-image: url('./../../../assets/images/icons/heart.svg');
+          }
+        }
+        &.active {
+          i {
+            background-image: url('./../../../assets/images/icons/heart-filled-selected.svg');
+          }
+        }
+      }
+      &.dislike {
+        background-color: $brand-orange;
+        border-radius: 0 20px 20px 0;
+        border-left: 2px solid $white;
+        &:hover {
+          background: rgba(255, 210, 128, 0.3);
+          i {
+            background-image: url('./../../../assets/images/icons/face-sad-color.svg');
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .voting {
+    &-img {
+      height: 166px;
+      width: 100%;
+      max-width: 295px;
+      margin: 0 auto;
+    }
+    &-actions-button {
+      width: 60px;
+      height: 60px;
+      i {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .voting {
+    &-img {
+      max-width: 668px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

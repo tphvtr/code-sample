@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+* {
+  box-sizing: border-box;
+}
+html, body { height: 100%; margin: 0;
+  overflow-x: hidden; }
+body { margin: 0; font-family: $Jost}
+.content {
+  &-wrap {
+    border-radius: 20px;
+    padding: 20px;
+    @include background-color('background');
+  }
+}
+@media (min-width: 1300px) {
+  .content {
+    &-wrap {
+      min-width: 680px;
+    }
+  }
+}

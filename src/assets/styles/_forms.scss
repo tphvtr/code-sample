@@ -1,0 +1,164 @@
+@import 'mixins';
+.button {
+  @include background-color('background');
+  font-family: $Jost;
+  width: 138px;
+  height: 36px;
+  text-transform: uppercase;
+  color: $brand-pink;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  &.medium {
+    height: 60px;
+    width: 60px;
+    padding: 15px;
+  }
+  &.small {
+    max-width: 40px;
+    height: 40px;
+    padding: 10px;
+    @include background-color('button');
+    &:hover {
+      background-color: $brand-pink;
+    }
+  }
+  &:hover {
+    background-color: $brand-light-pink;
+    color: $brand-pink;
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: $brand-pink;
+    color: $white;
+    &:hover {
+      background-color: $brand-pink;
+      color: $white;
+    }
+  }
+  &.upload {
+    @include background-color('button');
+    height: 40px;
+    &:hover {
+      background-color: $brand-pink;
+      color: $white;
+      .icon-upload {
+        background-image: url('./../images/icons/upload-selected.svg');
+      }
+    }
+  }
+
+  &.upload-photo {
+    background-color: $brand-pink;
+    color: $white;
+    height: 40px;
+    width: 172px;
+    &:hover {
+      background-color: $brand-light-pink;
+      color: $brand-pink;
+    }
+  }
+  &.sort {
+    @include background-color('log');
+    border: 2px solid transparent;
+    &:hover {
+      border-color: $brand-light-pink;
+      @include background-color('log');
+      .icon-asc {
+        background-image: url('./../images/icons/sort-asc-selected.svg');
+      }
+      .icon-desc {
+        background-image: url('./../images/icons/sort-desc-selected.svg');
+      }
+    }
+  }
+  &.refresh {
+    background-color: $white;
+    &:hover {
+      .icon-refresh {
+        background-image: url('./../images/icons/refresh-selected.svg')
+      }
+    }
+  }
+  &.clear {
+    background-color: $white;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    &:hover {
+      .icon-clear {
+        background-image: url('./../images/icons/clear-selected.svg');
+      }
+    }
+  }
+  &.arrow:hover .icon-arrow{
+    background-image: url('./../images/icons/arrow-selected.svg');
+  }
+
+
+}
+.input-wrap {
+  width: 100%;
+  height: 60px;
+  @include background-color('background');
+  border-radius: 20px;
+  padding: 20px 10px 20px 20px;
+  border: 2px solid transparent;
+  &:hover {
+    border-color: $brand-light-pink;
+  }
+  &:focus-within {
+    border-color: $brand-pink;
+  }
+  input {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    height: 56px;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    @include color('text');
+    font-family: $Jost;
+    &::placeholder {
+      color: $dark-grey;
+    }
+  }
+}
+.select {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  @include background-color('log');
+  color: $dark-grey;
+  padding: 8px 10px;
+  outline: none;
+  border: 2px solid transparent;
+  appearance: none;
+  background-image: url('./../images/icons/arrow-select.svg');
+  background-repeat: no-repeat;
+  background-position: center right 10px;
+  background-size: 12px;
+  font-family: $Jost;
+  cursor: pointer;
+  &:hover {
+    border-color: $brand-light-pink;
+  }
+  &.labled {
+    @include background-color('text-reverse');
+    @include color('text');
+  }
+  &-label {
+    text-transform: uppercase;
+    color: $dark-grey;
+    font-size: 10px;
+    line-height: 18px;
+    font-weight: 500;
+  }
+}

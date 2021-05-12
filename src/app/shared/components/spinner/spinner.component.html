@@ -1,0 +1,8 @@
+<div class="spinner-wrap" [style.min-height]="containerHeight + 'px'">
+  <div class="spinner" [style.width]="params[mode]?.width + 'px'" [style.height]="params[mode]?.height + 'px'">
+    <i class="spinner-icon"
+      [style.width]="params[mode]?.width + 'px'"
+      [style.height]="params[mode]?.height + 'px'"
+      [style.background-image]="'url(' + params[mode].url + ')'"></i>
+  </div>
+</div>

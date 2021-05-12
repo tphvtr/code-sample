@@ -1,0 +1,105 @@
+@import './../../../assets/styles/_variables.scss';
+@import './../../../assets/styles/_mixins.scss';
+.breed-item {
+  &-carousel {
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    &-nav {
+      height: 30px;
+      border-radius: 20px;
+      @include background-color('background-transparent');
+      padding: 10px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: -15px;
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      &-bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: $brand-light-pink;
+        margin-right: 5px;
+        display: block;
+        &:hover {
+          background-color: $brand-pink;
+          cursor: pointer;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &.active {
+          background-color: $brand-pink;
+        }
+      }
+    }
+  }
+  &-img {
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+  &-info {
+    border: 2px solid;
+    @include border-color('button');
+    border-radius: 20px;
+    padding: 75px 40px 40px;
+    position: relative;
+    &-heading {
+     @include background-color('background-transparent');
+     top: -32px;
+     left: 0;
+     right: 0;
+     margin: 0 auto;
+     text-align: center;
+     position: absolute;
+     max-width: fit-content;
+     padding: 0 40px;
+     h1, span {
+       margin: 0;
+     }
+    }
+    &-container {
+      display: flex;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .breed-item {
+    &-info-container {
+      flex-direction: column;
+      justify-content: unset;
+    }
+    &-img {
+      height: 166px;
+      width: 100%;
+      max-width: 295px;
+      margin: 0 auto;
+    }
+    &-carousel {
+      height: 166px;
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .breed-item {
+    &-info-container {
+      justify-content: center;
+    }
+    &-img {
+      max-width: 668px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="app" [ngClass]="{'theme-dark': theme === 'dark', 'theme-default': theme === 'default'}">
+  <div class="app-wrap row flex-end m-0-auto" id="app-wrap">
+    <div class="app-section-nav" [ngClass]="{'welcome': router?.url === '/'}">
+      <header class="mb-85 app-header row container-between">
+        <img [src]="imgUrl"
+             alt="PetPaw logo"
+             routerLink="/"
+             class="pointer outline-none">
+        <app-theme-toggle (action)="onThemeChange($event)" class="row align-center"></app-theme-toggle>
+      </header>
+      <aside class="app-aside">
+        <h1 class="lh-58 fs-44 fw-500 mb-10 black">Hi intern!</h1>
+        <p class="lh-29 fs-20 fw-400 gray mb-60">Welcome to MSI 2021 Front-End test</p>
+        <h2 class="lh-29 fs-20 fw-500 mb-20 black">Lets start using The Dogs API</h2>
+        <div class="tab-wrap row">
+          <app-tab *ngFor="let tab of tabs" [tab]="tab"></app-tab>
+        </div>
+      </aside>
+    </div>
+    <section class="app-section">
+      <div class="mb-10 row app-section-filter" *ngIf="router?.url !== '/'">
+        <button class="button medium mobile-menu mr-10" (click)="onOpenMobileMenu()">
+          <i class="icon-menu"></i>
+        </button>
+        <app-filter (query)="onSearchBreed($event)" class="width-100 desktop mr-10"></app-filter>
+        <div class="row">
+          <button class="button medium mr-10" [routerLink]="['/liked']" routerLinkActive="active">
+            <i class="icon-likes"></i>
+          </button>
+          <button class="button medium mr-10" [routerLink]="['/favourites']" routerLinkActive="active">
+            <i class="icon-favourites"></i>
+          </button>
+          <button class="button medium" [routerLink]="['/disliked']" routerLinkActive="active">
+            <i class="icon-dislikes"></i>
+          </button>
+        </div>
+      </div>
+      <app-filter (query)="onSearchBreed($event)" class="width-100 mobile mb-10" *ngIf="router?.url !== '/'"></app-filter>
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</div>

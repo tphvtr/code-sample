@@ -1,0 +1,5 @@
+<span class="app-theme-icon mr-5 pointer" (click)="checked = !checked">
+  <i class="icon-eye" *ngIf="(theme$ | async) === 'default'"></i>
+  <i class="icon-eye-closed" *ngIf="(theme$ | async) === 'dark'"></i>
+</span>
+<mat-slide-toggle [checked]="(theme$ | async) === 'dark' ? false : true" (change)="onThemeChange($event)" disableRipple></mat-slide-toggle>

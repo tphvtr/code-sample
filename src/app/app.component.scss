@@ -1,0 +1,91 @@
+@import './../assets/styles/_variables.scss';
+@import './../assets/styles/_mixins.scss';
+.app {
+  @include background-color('background-primary');
+  min-height: 100%;
+  &-wrap {
+    max-width: 1440px;
+    padding: 30px;
+  }
+  &-section {
+    &-nav {
+      margin-right: 135px;
+    }
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: block;
+    }
+    &-filter {
+      .mobile-menu {
+        display: none;
+      }
+    }
+  }
+  &-aside {
+    position: sticky;
+    top: 145px;
+  }
+  &-header {
+    top: 30px;
+    position: sticky;
+  }
+  &-theme {
+    &-icon {
+      @include background-color('background');
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 650px) {
+  .app {
+    &-section {
+      &-nav {
+        margin-right: 0;
+      }
+      &-filter {
+        justify-content: space-between;
+      }
+      .mobile {
+        display: block;
+      }
+      .desktop {
+        display: none;
+      }
+    }
+    &-menu {
+      flex-direction: column;
+    }
+  }
+}
+@media (max-width: 1300px) {
+  .app {
+    &-wrap {
+      padding: 20px;
+      flex-direction: column;
+    }
+    &-section {
+      &-nav {
+        display: none;
+        &.welcome {
+          display: block;
+        }
+      }
+      &-filter {
+        .button {
+          display: block;
+        }
+      }
+    }
+  }
+}

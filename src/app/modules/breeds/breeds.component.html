@@ -1,0 +1,35 @@
+<div class="content-wrap">
+  <div class="mb-20 row breeds-wrap">
+    <app-nav [crumbs]="crumbs" class="mr-10"></app-nav>
+    <div class="breeds-filter">
+      <select class="select mr-10 min-w-225"
+              [(ngModel)]="formGroup.breed_id"
+              (change)="onChangeBreeds(formGroup.breed_id)">
+        <option [value]="'ALL'">All breeds</option>
+        <option [value]="breed.id" *ngFor="let breed of breeds">{{ breed.name }}</option>
+      </select>
+      <div class="row width-100">
+        <select class="select mr-10 min-w-100"
+                [(ngModel)]="formGroup.limit"
+                (change)="onChangeLimit(formGroup.limit)">
+          <option [value]="limit"
+                  *ngFor="let limit of limits"
+                  [selected]="limit === formGroup.limit">
+                  Limit:&nbsp;{{ limit }}
+          </option>
+        </select>
+        <button class="button small sort mr-10" (click)="onSort('desc')">
+          <i class="icon-desc"></i>
+        </button>
+        <button class="button small sort" (click)="onSort('asc')">
+          <i class="icon-asc"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-grid [isLoading]="!data?.length"
+            [limit]="limits[0]"
+            [items]="data"
+            [mode]="'INFO'"
+            (action)="onAction($event)"></app-grid>
+</div>

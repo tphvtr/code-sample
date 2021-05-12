@@ -1,0 +1,86 @@
+@mixin icon($width, $height, $url) {
+  width: $width;
+  height: $height;
+  background-image: url($url);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.icon-likes {
+  @include icon(30px, 30px, './../images/icons/face-smile.svg');
+}
+.icon-favourites {
+  @include icon(32px, 30px, './../images/icons/heart.svg');
+}
+.icon-dislikes {
+  @include icon(30px, 30px, './../images/icons/face-sad.svg');
+}
+.icon-likes-white {
+  @include icon(30px, 30px, './../images/icons/face-smile-selected.svg');
+}
+.icon-favourites-white {
+  @include icon(32px, 30px, './../images/icons/heart-selected.svg');
+}
+.icon-dislikes-white {
+  @include icon(30px, 30px, './../images/icons/face-sad-selected.svg');
+}
+.icon-likes-color {
+  @include icon(30px, 30px, './../images/icons/face-smile-color.svg');
+}
+.icon-dislikes-color {
+  @include icon(30px, 30px, './../images/icons/face-sad-color.svg');
+}
+.icon-search {
+  @include icon(19px, 20px, './../images/icons/search.svg');
+}
+.icon-clear {
+  @include icon(20px, 18px, './../images/icons/clear.svg');
+}
+.icon-arrow {
+  @include icon(17px, 17px, './../images/icons/arrow.svg');
+}
+.icon-asc {
+  @include icon(17px, 17px, './../images/icons/sort-asc.svg');
+}
+.icon-desc {
+  @include icon(17px, 17px, './../images/icons/sort-desc.svg');
+}
+.icon-heart {
+  @include icon(20px, 17px, './../images/icons/heart-filled.svg');
+}
+.icon-upload {
+  @include icon(16px, 16px, './../images/icons/upload.svg');
+}
+.icon-refresh {
+  @include icon(16px, 16px, './../images/icons/refresh.svg');
+}
+.icon-success {
+  @include icon(30px, 30px, './../images/icons/success.svg');
+}
+.icon-fail {
+  @include icon(30px, 30px, './../images/icons/fail.svg');
+}
+.icon-eye {
+  @include icon(16px, 12px, './../images/icons/eye.svg');
+}
+.icon-eye-closed {
+  @include icon(16px, 12px, './../images/icons/eye-closed.svg');
+}
+.icon-menu {
+  @include icon(30px, 18px, './../images/icons/menu.svg');
+}
+.active {
+  .icon {
+    &-likes {
+      background-image: url('./../images/icons/face-smile-selected.svg');
+    }
+    &-favourites {
+      background-image: url('./../images/icons/heart-selected.svg');
+    }
+    &-dislikes {
+      background-image: url('./../images/icons/face-sad-selected.svg');
+    }
+  }
+}

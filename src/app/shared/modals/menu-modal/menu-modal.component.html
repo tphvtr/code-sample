@@ -1,0 +1,13 @@
+<button class="button small clear" (click)="dialog.close()">
+  <i class="icon-clear"></i>
+</button>
+<div class="row container-between mb-20">
+  <img [src]="imgUrl"
+       alt="PetPaw logo"
+       (click)="onGoHome()"
+       class="pointer outline-none">
+  <app-theme-toggle (action)="onThemeChange($event)" class="row align-center"></app-theme-toggle>
+</div>
+<div class="tab-wrap row container-center">
+  <app-tab *ngFor="let tab of tabs" [tab]="tab" (action)="onAction($event)"></app-tab>
+</div>

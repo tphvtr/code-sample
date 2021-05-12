@@ -1,0 +1,54 @@
+<div class="content-wrap">
+  <div class="mb-20 row">
+    <app-nav [crumbs]="crumbs" class="mr-10"></app-nav>
+  </div>
+  <div class="relative mb-50 breed-item-carousel-wrap">
+    <div class="breed-item-carousel relative">
+      <ng-container *ngFor="let url of urls; let i = index">
+        <div class="breed-item-img relative"
+            @slideAnimation
+            [style.background-image]="'url(' + urls[selectedSlideIndex] + ')'"
+            (swipeleft)="onSwipeSlide(1)"
+            (swiperight)="onSwipeSlide(-1)"
+            *ngIf="selectedSlideIndex === i && isLoad"
+            [style.touch-action]="'pan-y'">
+        </div>
+      </ng-container>
+      <app-spinner *ngIf="!isLoad" [containerHeight]="360" [mode]="'medium'"></app-spinner>
+    </div>
+    <img style="display: none" [src]="urls[selectedSlideIndex]" (load)="isLoad = true">
+    <div class="breed-item-carousel-nav" *ngIf="urls.length > 1">
+      <span *ngFor="let bullet of urls; let i = index"
+            class="breed-item-carousel-nav-bullet"
+            (click)="onChangeSlide(i)"
+            [ngClass]="{'active': selectedSlideIndex === i}">
+      </span>
+    </div>
+  </div>
+  <div class="breed-item-info">
+    <div class="breed-item-info-heading mb-20">
+      <h1 class="fs-36 lh-52 black fw-500 mb-10">{{ breed?.name }}</h1>
+      <span class="fs-20 lh-29 gray fw-500">{{ breed?.bred_for }}</span>
+    </div>
+    <div class="breed-item-info-container">
+      <p class="fs-16 lh-23 mr-20 max-w-270 mb-10 mt-0">
+        <span class="fw-600 black">Temperament:&nbsp;</span>
+        <span class="gray">{{ breed?.temperament }}</span>
+      </p>
+      <div>
+        <p class="fs-16 lh-23 mb-10 mt-0">
+          <span class="fw-600 black">Height&nbsp;</span>
+          <span class="gray">{{ breed?.life_span }}</span>
+        </p>
+        <p class="fs-16 lh-23 mb-10 mt-0">
+          <span class="fw-600 black">Weight:&nbsp;</span>
+          <span class="gray">{{ breed?.weight.metric }}</span>
+        </p>
+        <p class="fs-16 lh-23 mb-0 mt-0">
+          <span class="fw-600 black">Lifespan:&nbsp;</span>
+          <span class="gray">{{ breed?.height.metric }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

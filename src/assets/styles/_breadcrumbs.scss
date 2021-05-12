@@ -1,0 +1,22 @@
+.breadcrumb {
+  @include background-color('button');
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 30px;
+  letter-spacing: 2px;
+  height: 40px;
+  color: $brand-pink;
+  padding: 5px 25px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 10px;
+  &.active, &:hover {
+    background-color: $brand-pink;
+    color: $white;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

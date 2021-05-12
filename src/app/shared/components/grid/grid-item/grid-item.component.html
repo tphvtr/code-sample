@@ -1,0 +1,18 @@
+<div class="grid-img"
+     [style.background-image]="'url(' + item?.url + ')'"
+     [ngClass]="{'active': item?.fav_id}"
+     [style.width]="width + 'px'"
+     [style.height]="height + 'px'"
+     *ngIf="item?.url"
+     (click)="onAction(item.id, item.fav_id, item.image_id)">
+  <div class="grid-img-overlay row container-center"
+       *ngIf="mode"
+       [style.width]="width + 'px'"
+       [style.height]="height + 'px'">
+    <span *ngIf="mode === 'INFO'" class="info">{{ item?.name }}</span>
+    <span *ngIf="mode === 'FAV' || mode === 'GALLERY'" class="fav">
+          <i class="icon-heart" *ngIf="mode === 'FAV'"></i>
+          <i class="icon-favourites" *ngIf="mode === 'GALLERY'"></i>
+    </span>
+  </div>
+</div>

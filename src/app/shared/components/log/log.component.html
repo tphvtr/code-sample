@@ -1,0 +1,16 @@
+<div class="log mb-10 row container-between align-center">
+  <div class="log-wrap">
+    <span class="log-time mr-20">{{ log.time }}</span>
+    <div>
+      <span>Image:&nbsp;ID:&nbsp;</span>
+      <span class="fw-600 black">{{ log.id }}</span>
+      <span> was {{ log.user_action === 1 ? 'added' : 'removed' }} {{ log.user_action === 1 ? 'to' : 'from' }} </span>
+      <span class="capitalize">{{ log.category }}</span>
+    </div>
+  </div>
+  <div [ngSwitch]="log.category" class="log-icon">
+      <i *ngSwitchCase="'favourites'" class="icon-favourites h-20 w-20 ml-10"></i>
+      <i *ngSwitchCase="'likes'" class="icon-likes-color h-20 w-20 ml-10"></i>
+      <i *ngSwitchCase="'dislikes'" class="icon-dislikes-color h-20 w-20 ml-10"></i>
+  </div>
+</div>

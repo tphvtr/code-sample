@@ -1,0 +1,101 @@
+@import './../../../../../assets/styles/_variables.scss';
+@import './../../../../../assets/styles/_mixins.scss';
+.grid {
+  &-img {
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 10px 20px;
+    position: relative;
+    cursor: pointer;
+    &-overlay {
+      position: absolute;
+      opacity: 0;
+      background-color: rgba(255, 134, 142, 0.6);
+      visibility: hidden;
+      transition: .3s;
+      .info {
+        width: 180px;
+        min-height: 36px;
+        max-height: 60px;
+        text-overflow: ellipsis;
+        margin: 10px;
+        border-radius: 10px;
+        @include background-color('background-transparent');
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        color: $brand-pink;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        opacity: 0;
+        visibility: 0;
+      }
+      .fav {
+        height: 40px;
+        width: 40px;
+        @include background-color('background-transparent');
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        opacity: 0;
+        visibility: 0;
+      }
+      .icon-favourites {
+        width: 20px;
+        height: 17px;
+      }
+    }
+    &:hover &-overlay {
+      opacity: 1;
+      visibility: visible;
+      cursor: pointer;
+    }
+    &:hover &-overlay span {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.active &-overlay {
+      opacity: 1;
+      visibility: visible;
+      cursor: pointer;
+    }
+    &.active &-overlay span {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .grid {
+    &-img {
+      width: calc(100% - 20px) !important;
+      height: 360px !important;
+      &-overlay {
+        width: 100% !important;
+        height: 360px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .grid {
+    &-img {
+      width: calc(100% - 20px) !important;
+      height: 205px !important;
+      &-overlay {
+        width: 100% !important;
+        height: 205px !important;
+      }
+    }
+  }
+}

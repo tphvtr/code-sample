@@ -1,0 +1,23 @@
+.breeds {
+  &-wrap {
+    justify-content: space-between;
+  }
+  &-filter {
+    display: flex;
+    align-content: center;
+  }
+}
+@media (max-width: 750px) {
+  .breeds {
+    &-wrap {
+      flex-direction: column;
+    }
+    &-filter {
+      flex-direction: column;
+      margin-top: 10px;
+      select {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

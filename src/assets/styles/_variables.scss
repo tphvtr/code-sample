@@ -1,0 +1,40 @@
+$Jost: Jost, sans-serif;
+
+$brand-light-pink: #FBE0DC;
+$brand-pink: #FF868E;
+$brand-purple: #B4B7FF;
+$brand-green: #97EAB9;
+$brand-orange: #FFD280;
+
+
+$grey: #e5e5e5;
+$light-grey: #f8f8f7;
+$dark-grey: #8C8C8C;
+$black: #1d1d1d;
+$white: #fff;
+$light-black: rgba(255, 255, 255, 0.05);
+$light-black-pink: rgba(255, 134, 142, 0.2);
+$black-transparent: #292929;
+
+$themes: (
+  'default': (
+    'background-primary': $light-grey,
+    'background-secondary': $brand-light-pink,
+    'background': $white,
+    'background-transparent': $white,
+    'text': $black,
+    'log': $light-grey,
+    'text-reverse': $white,
+    'button': $brand-light-pink
+  ),
+  'dark': (
+    'background-primary': $black,
+    'background-secondary': $light-black,
+    'background': $light-black,
+    'background-transparent': $black-transparent,
+    'text': $white,
+    'log': $light-black,
+    'text-reverse': $black,
+    'button': $light-black-pink
+  )
+)

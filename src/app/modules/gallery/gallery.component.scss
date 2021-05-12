@@ -1,0 +1,73 @@
+@import './../../../assets/styles/_variables.scss';
+@import './../../../assets/styles/_mixins.scss';
+.gallery {
+  &-filter {
+    display: flex;
+    &-wrap {
+      @include background-color('log');
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &-nav {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 450px) {
+  .gallery {
+    &-nav {
+      flex-direction: column;
+      margin-bottom: 10px;
+      .upload {
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+    &-filter {
+      .select {
+        min-width: 240px;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .gallery {
+    &-filter {
+      width: 100%;
+      flex-direction: column;
+      .refresh {
+        margin-top: 10px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .select {
+        margin-bottom: 10px;
+      }
+      .upload {
+        width: 100%;
+      }
+      .select {
+        &-wrap {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen
+and (min-width: 750px)
+and (max-width: 1300px) {
+  .select-wrap {
+    min-width: 310px;
+    &.last {
+      min-width: 260px;
+    }
+  }
+}

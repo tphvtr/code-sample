@@ -1,0 +1,45 @@
+.lh-23 {
+  line-height: 23px;
+}
+.lh-29 {
+  line-height: 29px;
+}
+.lh-52 {
+  line-height: 52px;
+}
+.lh-58 {
+  line-height: 58px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-22 {
+  font-size: 20px;
+}
+.fs-36 {
+  font-size: 36px;
+}
+.fs-44 {
+  font-size: 44px;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.gray {
+  color: $dark-grey;
+}
+.black {
+  @include color('text');
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.text-center {
+  text-align: center;
+}

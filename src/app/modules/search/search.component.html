@@ -1,0 +1,10 @@
+<div class="content-wrap">
+  <div class="mb-20">
+    <app-nav [crumbs]="crumbs"></app-nav>
+  </div>
+  <p class="fs-20 lh-29 mb-20">
+    <span class="gray">Search results for:&nbsp;</span>
+    <span class="fw-600 black capitalize">{{ query }}</span>
+  </p>
+  <app-grid [isLoading]="!data?.length && isLoading" [limit]="5" [items]="data" [mode]="'INFO'" (action)="onAction($event)"></app-grid>
+</div>

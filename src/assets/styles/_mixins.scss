@@ -1,0 +1,21 @@
+@mixin themify($property, $key, $themes: $themes) {
+  @each $theme, $colors in $themes {
+    &.theme-#{$theme},
+    .theme-#{$theme} & {
+      #{$property}: map-get($colors, $key);
+      transition: .3s;
+    }
+  }
+}
+
+@mixin color($arguments...) {
+  @include themify('color', $arguments...);
+}
+
+@mixin border-color($arguments...) {
+  @include themify('border-color', $arguments...);
+}
+
+@mixin background-color($arguments...) {
+  @include themify('background-color', $arguments...);
+}
